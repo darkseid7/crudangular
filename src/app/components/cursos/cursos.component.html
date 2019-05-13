@@ -1,0 +1,97 @@
+
+<br>
+<div class="container">
+    <h1>Here you can see the courses added</h1> <br>
+<div *ngIf="cursos?.length > 0; else noCursos">
+  <ul *ngFor="let curso of cursos" class="collection">
+    <li class="collection-item">
+      <a class="secondary-content">
+        <i *ngIf="editState == false" (click)="editCurso($event, curso)" class="material-icons">mode_edit</i>
+        <i *ngIf="editState && cursoToEdit.id == curso.id" (click)="clearState()" class="material-icons">close</i>
+      </a>
+      <h4>
+        <strong>{{curso.nombre}}</strong>
+      </h4>
+      <br>
+      <blockquote>{{curso.descripcion}}</blockquote>
+      <br>
+      <span class="my_tag teal">
+        <strong>Price:</strong> {{curso.precio}}
+      </span>
+      <span class="my_tag teal">
+        <strong>Languaje:</strong> {{curso.idioma}}
+      </span>
+      <span class="my_tag teal">
+        <strong>Trainer:</strong> {{curso.formador}}
+      </span>
+      <span class="my_tag teal">
+        <strong>{{curso.tecnologia}}</strong>
+      </span>
+      <hr>
+
+      <div *ngIf="editState && cursoToEdit.id == curso.id" class="container-updateCurso">
+        <form>
+          <form (ngSubmit)="onUpdateCurso(curso)" class="col s6">
+            <div class="row">
+              <div class="input-field col s6">
+                <input [(ngModel)]="curso.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Course Name" required>
+                <label class="active">Course Name</label>
+                <div *ngIf="nombre.touched && !nombre.valid">
+                    <div *ngIf="nombre.errors.required">Name is required</div>
+                  </div>
+              </div>
+              <div class="input-field col s6">
+                <input [(ngModel)]="curso.descripcion" #descripcion="ngModel" type="text" name="descripcion" id="descripcion"
+                  placeholder="Description" required>
+                <label class="active">Description</label>
+                <div *ngIf="descripcion.touched && !descripcion.valid">
+                    <div *ngIf="descripcion.errors.required">Description is required</div>
+                  </div>
+              </div>
+              <div class="input-field col s6">
+                <input [(ngModel)]="curso.formador" #formador="ngModel" type="text" name="formador" id="formador"
+                  placeholder="Trainer" required>
+                <label class="active">Trainer</label>
+                <div *ngIf="formador.touched && !formador.valid">
+                    <div *ngIf="formador.errors.required">Trainer is required</div>
+                  </div>
+              </div>
+              <div class="input-field col s6">
+                <input [(ngModel)]="curso.precio" #precio="ngModel" type="text" name="precio" id="precio" placeholder="Price" required>
+                <label class="active">Price</label>
+                <div *ngIf="precio.touched && !precio.valid">
+                    <div *ngIf="precio.errors.required">Price is required</div>
+                  </div>
+              </div>
+              <div class="input-field col s6">
+                <input [(ngModel)]="curso.idioma" #idioma="ngModel" type="text" name="idioma" id="idioma" placeholder="Languaje" required>
+                <label class="active">Languaje</label>
+                <div *ngIf="idioma.touched && !idioma.valid">
+                    <div *ngIf="idioma.errors.required">Languaje is required</div>
+                  </div>
+              </div>
+              <div class="input-field col s6">
+                <input [(ngModel)]="curso.tecnologia" #tecnologia="ngModel" type="text" name="tecnologia" id="tecnologia"
+                  placeholder="Tecnology" required>
+                <label class="active">Tecnology</label>
+                <div *ngIf="tecnologia.touched && !tecnologia.valid">
+                    <div *ngIf="tecnologia.errors.required">Tecnology is required</div>
+                  </div>
+              </div>
+
+                <button (click)="deleteCurso(event, curso)" class="btn red right ">Delete
+                </button>
+                <button type="submit" class="btn blue">Update
+                </button>
+            </div>
+          </form>
+        </form>
+      </div>
+    </li>
+  </ul>
+</div>
+<ng-template #noCursos>
+  <hr>
+  <h5>No Existen Cursos</h5>
+</ng-template>
+</div>

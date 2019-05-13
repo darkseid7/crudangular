@@ -1,0 +1,9 @@
+{
+
+  "/angularcrud-d3526.firebaseapp.com/*":{
+    "target": "https://angularcrud-d3526.firebaseio.com",
+    "secure": false,
+    "changeOrigin": true
+  }
+
+}

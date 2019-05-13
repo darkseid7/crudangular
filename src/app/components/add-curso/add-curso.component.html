@@ -1,0 +1,62 @@
+
+<br>
+<div class="container">
+<div class="card">
+  <div class="card-content">
+    <div>
+    <h1>Welcome to Add Courses</h1> <br>
+     </div>
+    <span class="card-title">
+      Application Form
+    </span>
+    <form (ngSubmit)="onGuardarCurso(formNew)" #formNew="ngForm" class="col s6">
+      <div class="row">
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Course Name" required>
+          <label>Course Name</label>
+          <div *ngIf="nombre.touched && !nombre.valid">
+            <div *ngIf="nombre.errors.required">Name is required</div>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.descripcion" #descripcion="ngModel" type="text" name="descripcion"  id="descripcion" placeholder="Course Description" required>
+          <label>Course Description</label>
+          <div *ngIf="descripcion.touched && !descripcion.valid">
+              <div *ngIf="descripcion.errors.required">Description is required</div>
+            </div>
+        </div>
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.formador" #formador="ngModel" type="text" name="formador" id="formador" placeholder="Trainer" required>
+          <label>Trainer</label>
+          <div *ngIf="formador.touched && !formador.valid">
+              <div *ngIf="formador.errors.required">Trainer is required</div>
+            </div>
+        </div>
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.precio" #precio="ngModel" type="text" name="precio" id="precio" placeholder="Price" required>
+          <label>Price</label>
+          <div *ngIf="precio.touched && !precio.valid">
+              <div *ngIf="precio.errors.required">Price is required</div>
+            </div>
+        </div>
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.idioma" #idioma="ngModel" type="text" name="idioma" id="idioma" placeholder="Languaje" required>
+          <label>Languaje</label>
+          <div *ngIf="idioma.touched && !idioma.valid">
+              <div *ngIf="idioma.errors.required">Languaje is required</div>
+            </div>
+        </div>
+        <div class="input-field col s6">
+          <input [(ngModel)]="curso.tecnologia" #tecnologia="ngModel" type="text" name="tecnologia" id="tecnologia" placeholder="Tecnology" required>
+          <label>Tecnology</label>
+          <div *ngIf="tecnologia.touched && !tecnologia.valid">
+              <div *ngIf="tecnologia.errors.required">Tecnology is required</div>
+            </div>
+        </div>
+        <button type="submit" class="btn waves-effect waves-light teal right">Add Course
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

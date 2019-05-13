@@ -1,0 +1,15 @@
+.my_tag{
+  font-weight: 300;
+  font-size: 1.2rem;
+  border-radius: 3px;
+  margin-left: 0;
+  text-align: center;
+  line-height: 22px;
+  color: white;
+  box-sizing: border-box;
+  padding: 0.3rem;
+  margin-right: 5px;
+  }
+.secondary-content {
+  color: black;
+}
